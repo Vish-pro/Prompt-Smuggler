@@ -19,7 +19,7 @@ from smuggler.daemon import watch, DEFAULT_HOTKEY
 def main():
     parser = argparse.ArgumentParser(description="Prompt-Smuggler: Compress prompts using custom symbols.")
     parser.add_argument("--config",      type=str,  default=".smugglerrc.yaml", help="Path to config file.")
-    parser.add_argument("--target",      type=str,  default="gpt-4o",           help="Target model for token counting.")
+    parser.add_argument("--target",      type=str,  default="cl100k",           help="Tokenizer for counting (cl100k, gpt-4o, claude). Does not affect where prompt is sent.")
     parser.add_argument("--dry-run",     action="store_true",                   help="Show savings estimate without outputting prompt.")
     parser.add_argument("--session",     type=str,  default=None,               help="Session ID. Grammar header sent only on first call per session.")
     parser.add_argument("--new-session", action="store_true",                   help="Reset session so grammar header is sent again on next call.")
@@ -78,7 +78,7 @@ def main():
     raw_tok = savings["raw_tokens"]
     pct     = (saved / raw_tok * 100) if raw_tok > 0 else 0
 
-    print(f"\n[Prompt-Smuggler | Target: {args.target}]", file=sys.stderr)
+    print(f"\n[Prompt-Smuggler]", file=sys.stderr)
     print(f"  Raw tokens       : {raw_tok}", file=sys.stderr)
     print(f"  Grammar tokens   : {savings['grammar_tokens']}", file=sys.stderr)
     print(f"  Compressed tokens: {savings['compressed_tokens']}", file=sys.stderr)
@@ -91,7 +91,8 @@ def main():
     elif grammar_header == "" and args.session and savings["compressed_tokens"] < raw_tok:
         print(f"  Session          : '{args.session}' — grammar skipped, saved {raw_tok - savings['compressed_tokens']} tokens this call", file=sys.stderr)
     elif not grammar_header:
-        print(f"  Result           : SKIPPED — compression would increase tokens. Sending raw prompt.", file=sys.stderr)
+        print(f"  Result           : SKIPPED — grammar header overhead exceeds savings for this prompt.", file=sys.stderr)
+        print(f"  Tip              : Repeat 2+ symbols in one prompt, or use --session so header is paid only once.", file=sys.stderr)
     else:
         print(f"  Result           : No matching symbols found.", file=sys.stderr)
 

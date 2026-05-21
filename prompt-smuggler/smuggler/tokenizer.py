@@ -19,14 +19,22 @@ def get_hf_tokenizer(model_name: str):
             _hf_tokenizers[model_name] = None
     return _hf_tokenizers[model_name]
 
-def count_tokens(text: str, model: str = "gpt-4o") -> int:
+def count_tokens(text: str, model: str = "cl100k") -> int:
     """
     Returns the number of tokens in a text string.
-    Uses tiktoken for OpenAI models.
+    Uses tiktoken for OpenAI/Claude models (cl100k_base encoding).
     Uses Hugging Face tokenizers for local models (e.g., meta-llama/Meta-Llama-3-8B).
     Falls back to cl100k_base if all else fails.
     """
-    # 1. Check if it's an OpenAI model
+    # 1. Direct encoding names or Claude/generic — use cl100k_base
+    if model.lower() in ("cl100k", "cl100k_base", "claude", "default"):
+        try:
+            encoding = tiktoken.get_encoding("cl100k_base")
+            return len(encoding.encode(text))
+        except Exception:
+            return len(text) // 4
+
+    # 2. Check if it's an OpenAI model
     if "gpt" in model.lower() or "o1" in model.lower():
         try:
             encoding = tiktoken.encoding_for_model(model)
@@ -56,7 +64,7 @@ def count_tokens(text: str, model: str = "gpt-4o") -> int:
         # Ultimate fallback
         return len(text) // 4
 
-def calculate_savings(raw_text: str, compressed_text: str, grammar_text: str = "", model: str = "gpt-4o") -> dict:
+def calculate_savings(raw_text: str, compressed_text: str, grammar_text: str = "", model: str = "cl100k") -> dict:
     """
     Calculates the token counts and savings.
     """

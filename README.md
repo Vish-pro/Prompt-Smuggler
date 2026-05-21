@@ -1,49 +1,106 @@
 # Prompt-Smuggler
 
-**Bypass LLM token limits and slash your API bills.**  
-Pack massive instructions into micro-symbols that any AI natively understands.  
+**Stop paying for the same instructions twice.**  
+Turn your 300-token mega-prompts into 3 symbols. Any AI understands them instantly.  
 No coding knowledge required.
 
 ```
-Your 500-token prompt  ──►  [Smuggler]  ──►  µ_j µ_style "Summarise this..."
-                                               Saved 70%+ tokens
+"Think step-by-step. Before giving the final answer,    ──►  STEP SIMPLE
+ create a reasoning block... Reply in clean, scannable        Saved 68 tokens
+ bullet points. Keep the total response under 3 sentences."
 ```
 
 ---
 
-## The Problem
+## Who This Is For
 
-Every time you use Claude, ChatGPT, or any AI — you pay for every word you send.
+You have seen prompts like this all over Instagram, YouTube, and Reddit:
 
-Most people waste thousands of tokens sending the same massive instructions over and over:
+> *"Act as a world-class copywriter with 20 years of experience. Think step by step. Before answering, list your assumptions. Reply only in bullet points. Never use filler phrases. Keep it under 150 words..."*
 
-> *"Act as an expert software engineer with 15 years of experience... Use TypeScript strict mode... Validate all inputs... Never expose passwords..."*
+You copy it. You paste it. You paste it again tomorrow. And the day after.
 
-That's 80 tokens. Every. Single. Request.
+**Every paste = 150–400 tokens = real money on API, real slowness on free tiers.**
 
-**Prompt-Smuggler turns those 80 tokens into 2.**
+Prompt-Smuggler compresses those instructions into short symbols your AI natively understands — and restores them automatically before sending.
+
+---
+
+## When This Tool Saves You the Most
+
+### Use it when you have:
+
+**Long "mega-prompts" from social media**
+Those 10-tweet AI prompt threads, Notion templates, YouTube tutorials. Copy once, compress to symbols, paste a 5-word version forever.
+
+```
+Before:  "Think step-by-step. Before giving the final answer, create a reasoning
+          block breaking down your assumptions, potential edge cases, and logical
+          sequence. Reply in clean, scannable bullet points. Keep the total
+          response under 3 sentences. Use highly accessible, direct English."
+                                        ↓ 68 tokens
+
+After:   STEP SIMPLE                   ↓ 2 tokens + grammar header (paid once)
+```
+
+**The same instruction in multiple questions**
+```
+Before:
+  "Think step-by-step... Why do startups fail?
+   Think step-by-step... What makes a good brand?
+   Think step-by-step... How do you validate a product?"
+  = 200 tokens
+
+After:
+  "STEP Why do startups fail?
+   STEP What makes a good brand?
+   STEP How do you validate a product?"
+  + grammar header (paid once)
+  = 80 tokens  →  Saved 120 tokens (60%)
+```
+
+**A system prompt you send at the start of every session**
+Define your persona, tone, rules once as symbols. Type `SYS SEC µ_j` instead of 300 words every morning.
+
+**API developers sending the same instructions across thousands of calls**
+Use `--session`. Grammar header sent only on first call. Every call after = symbols only = maximum savings.
+
+---
+
+## When This Tool WON'T Help (Skip It)
+
+| Situation | Why |
+|---|---|
+| One-liner questions ("What is the capital of France?") | Nothing to compress — no instruction overhead |
+| Short prompts under ~60 tokens with one symbol | Grammar header overhead can exceed savings — tool skips automatically |
+| One-off prompts you will never reuse | Not worth defining a symbol for |
+| Purely conversational messages | No structural instructions to replace |
+
+**The break-even guard has your back.** If compression would make your prompt bigger, the tool silently sends the original. You never pay more than without it.
 
 ---
 
 ## How It Works
 
-You define a personal shorthand dictionary (takes 2 minutes):
+Define a personal shorthand dictionary (takes 2 minutes):
 
 ```yaml
 # .smugglerrc.yaml
 grammar:
-  µ_j:     "Respond with a strictly valid JSON object, omitting any conversational filler."
-  µ_style: "Use an authoritative corporate tone. Short punchy sentences. Always lead with a summary."
+  STEP:    "Think step-by-step. Before giving the final answer, create a reasoning block breaking down your assumptions, potential edge cases, and logical sequence."
+  SIMPLE:  "Reply in clean, scannable bullet points. Keep the total response under 3 sentences. Use highly accessible, direct English."
   SYS:     "You are a senior software engineer. Think step by step. Be concise."
 ```
 
 Then write prompts like this:
 
 ```
-SYS µ_j Build me a login API with email and password.
+STEP SIMPLE SYS Build me a login API.
 ```
 
-Prompt-Smuggler detects your symbols, bundles a compact decoder header, and sends the whole thing to the AI in a fraction of the original tokens.
+Or just copy-paste a mega-prompt — Prompt-Smuggler auto-detects and compresses phrases that match your grammar, even paraphrased versions.
+
+The AI receives a compact decoder header + your compressed prompt. It reads the header, expands the symbols, and answers as if you typed the full thing.
 
 **The AI gets your full instructions. You pay for almost nothing.**
 
@@ -51,13 +108,13 @@ Prompt-Smuggler detects your symbols, bundles a compact decoder header, and send
 
 ## Features
 
-- **70%+ token compression** on repeated instruction blocks
-- **Break-even guard** — if compression won't help, it sends the original untouched. You never pay more than without the tool.
+- **Auto-detects your instructions** — exact match, typed symbol, or fuzzy paraphrase (82% similarity threshold)
+- **Break-even guard** — if compression won't help, sends the original untouched. You never pay more.
 - **Works with any AI** — Claude, ChatGPT, Gemini, DeepSeek, Grok, local models, anything
 - **No API key needed** to compress — just copy and paste the output anywhere
 - **Session-aware** — grammar header sent only once per conversation, not on every message
 - **Dead symbol audit** — find unused symbols wasting space in your grammar file
-- **Desktop app** — GUI for non-coders, no terminal needed
+- **Desktop app** — GUI with symbol library panel for non-coders, no terminal needed
 - **Global hotkey daemon** — compress clipboard with one keypress from any app
 
 ---
@@ -91,7 +148,7 @@ pip install -e ".[watch]"
 python desktop/app.py
 ```
 
-Paste your prompt → Click **Compress** → Click **Copy** → Paste into any AI.
+The app opens with a **Symbol Library panel** on the right — browse all your grammar symbols, click any to insert it into your prompt. Paste your prompt → Click **Compress** → Click **Copy** → Paste into any AI.
 
 ---
 
@@ -104,11 +161,10 @@ smuggler --watch
 
 Then from any app — Claude Desktop, ChatGPT, Gemini, anything:
 
-1. Type your prompt
-2. `Ctrl+A` → `Ctrl+C`
-3. Press `Ctrl+Shift+Space`
-4. Notification: *"Saved 47 tokens (58%). Paste with Ctrl+V"*
-5. `Ctrl+A` → `Ctrl+V` → Send
+1. Copy a long prompt (`Ctrl+A` → `Ctrl+C`)
+2. Press `Ctrl+Shift+Space`
+3. Notification: *"Saved 47 tokens (58%). Paste with Ctrl+V"*
+4. `Ctrl+A` → `Ctrl+V` → Send
 
 ---
 
@@ -124,13 +180,13 @@ pip install -e ".[deepseek]"
 pip install -e ".[all]"         # every provider
 
 # Compress and copy to clipboard
-echo "SYS µ_j Build a login API" | smuggler --copy
+echo "STEP SIMPLE Build a login API" | smuggler --copy
 
 # Compress and send directly to an AI
-echo "SYS µ_j Build a login API" | smuggler --send --provider anthropic
+echo "STEP SIMPLE Build a login API" | smuggler --send --provider anthropic
 
 # Preview savings without sending
-echo "SYS µ_j Build a login API" | smuggler --dry-run
+cat my_long_prompt.txt | smuggler --dry-run
 
 # Pipe into any AI tool
 cat my_prompt.txt | smuggler | llm-cli
@@ -178,7 +234,7 @@ grammar:
 
 ## Token Efficiency
 
-Real test — same instructions sent 3 times (common in multi-task prompts):
+Real test — same instruction block sent 3 times (typical multi-task prompt):
 
 | | Tokens |
 |---|---|
@@ -219,47 +275,51 @@ At scale with GPT-4o pricing ($2.50 / 1M tokens):
 
 ```
 Prompt-Smuggler/
-├── desktop/                  ← Desktop GUI app (for non-coders)
+├── desktop/                  <- Desktop GUI app (for non-coders)
 │   └── app.py
-└── prompt-smuggler/          ← CLI tool and core engine
+└── prompt-smuggler/          <- CLI tool and core engine
     ├── pyproject.toml
-    ├── .smugglerrc.yaml      ← Your symbol grammar
-    ├── .env.example          ← API key template
+    ├── .smugglerrc.yaml      <- Your symbol grammar
+    ├── .env.example          <- API key template
     └── smuggler/
-        ├── compiler.py       ← Core compression engine
-        ├── tokenizer.py      ← Token counting (tiktoken)
-        ├── sender.py         ← 13 AI provider integrations
-        ├── session.py        ← Session-aware grammar caching
-        ├── daemon.py         ← Global hotkey background daemon
-        ├── audit.py          ← Dead symbol scanner
-        └── cli.py            ← Command line interface
+        ├── compiler.py       <- Core compression engine (3-pass: exact, symbol, fuzzy)
+        ├── tokenizer.py      <- Token counting (tiktoken)
+        ├── sender.py         <- 13 AI provider integrations
+        ├── session.py        <- Session-aware grammar caching
+        ├── daemon.py         <- Global hotkey background daemon
+        ├── audit.py          <- Dead symbol scanner
+        └── cli.py            <- Command line interface
 ```
 
 ---
 
 ## Pro Tips
 
+**Got a mega-prompt from Instagram or Twitter?**
+Paste it into the desktop app once. The tool detects which phrases match your grammar and compresses them automatically. Save the compressed version — use it forever.
+
 **Non-coders using Claude Desktop or ChatGPT:**
-Run `smuggler --watch` once when you sit down to work. Press `Ctrl+Shift+Space` to compress anything you copy. Never touch the terminal again.
+Run `smuggler --watch` once when you sit down to work. Press `Ctrl+Shift+Space` after copying any prompt. Never touch the terminal again.
 
 **Developers on API:**
-Use `--session myapp` so the grammar header is sent only on the first call. Every call after skips it entirely — maximum savings at scale.
+Use `--session myapp` so the grammar header is sent only on the first call. Every call after skips the header entirely — symbols only. Maximum savings at scale.
 
 **Local AI users (Ollama):**
 Keeping prompts compressed is the fastest way to stop your CPU fan sounding like a jet engine on long generations.
 
 ---
 
-## Why "Already optimal"?
+## Why Does It Say "Skipped"?
 
-If you see this message, your prompt doesn't contain any symbols or phrases from your `.smugglerrc.yaml`. The tool only compresses what it recognises.
+The tool includes a **break-even guard**. If your prompt is short (under ~60 tokens) and only uses one symbol, the grammar header overhead can cost more tokens than compression saves. In that case, the tool silently sends your original prompt unchanged. You never pay more than without it.
 
-**Fix:** Add a symbol to your grammar, then use it in your prompt:
-```yaml
-grammar:
-  SYS: "You are a helpful assistant."
-```
-Then type: `SYS What is the capital of France?`
+**When does compression kick in?**
+- Your prompt repeats the same instruction 2+ times
+- Your prompt uses 2+ symbols
+- You use `--session` — header paid once on the first call, skipped on every call after
+
+**Quick test to confirm it's working:**
+Paste a long multi-instruction prompt (anything from an AI influencer's thread) and run with `--dry-run`. Real savings show up on prompts over 80 tokens with repeated instructions.
 
 ---
 
