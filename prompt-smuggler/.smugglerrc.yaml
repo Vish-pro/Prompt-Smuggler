@@ -1,0 +1,5 @@
+grammar:
+  µ_j: "Respond with a strictly valid JSON object, omitting any conversational filler or introductory markdown text."
+  µ_ts: "Use TypeScript, strict typing, interfaces for all props, and prefer functional components."
+settings:
+  ollama_endpoint: "http://localhost:11434"
