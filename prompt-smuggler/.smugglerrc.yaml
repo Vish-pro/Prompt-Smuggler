@@ -1,5 +1,50 @@
+# =====================================================================
+# PROMPT-SMUGGLER GLOBAL SHORTHAND GRAMMAR DEFINITIONS
+# =====================================================================
+# The Rule: If you type an instruction more than twice, it belongs here.
+# Prefixes used:
+#   µ_   (Micro) = Heavy structural formatting rules
+#   ⚡_  (Flash) = Fast productivity shortcuts
+#   ✍️_  (Write) = Content, tone, and brand styling
+#   🧠_  (Brain) = Advanced thinking and logic models
+# =====================================================================
+
 grammar:
-  µ_j: "Respond with a strictly valid JSON object, omitting any conversational filler or introductory markdown text."
-  µ_ts: "Use TypeScript, strict typing, interfaces for all props, and prefer functional components."
+
+  # ==========================================
+  # 1. HEAVY STRUCTURAL FORMATTING (µ_)
+  # ==========================================
+  µ_j:     "Respond with a strictly valid JSON object, omitting all conversational filler, introductory markdown text, or wrapping explanations."
+  µ_ts:    "Use TypeScript, strict typing, interfaces for all props, and prefer functional components."
+  µ_table: "Format the entire output as a clean, highly organized Markdown table with descriptive column headers."
+  µ_chart: "Represent the data or process as a text-based ASCII flowchart or a clean Mermaid.js diagram sequence."
+  µ_slide: "Format this content as a presentation slide deck outline. For each slide, provide a Slide Title, 3 high-impact bullet points, and brief Speaker Notes."
+  Ξ_clean: "Remove all unnecessary inline comments, format using strict variable typing, and optimize loops for performance."
+
+  # ==========================================
+  # 2. SPEED PRODUCTIVITY SHORTCUTS
+  # ==========================================
+  SIMPLE:    "Reply in clean, scannable bullet points. Keep the total response under 3 sentences. Use highly accessible, direct English."
+  TLDR:      "Provide a Too Long Did Not Read summary. Give exactly 1 headline sentence capturing the main point, followed by 3 sub-bullets of essential takeaways."
+  ACTION:    "Skim the text below and extract only the action items. Format as a checkbox list with owners and implicit deadlines if mentioned."
+  FIX:       "Check the provided text for grammatical errors, spelling mistakes, and awkward phrasing. Return only the corrected version with changes highlighted in bold."
+  EMAIL:     "Draft a polite, professional corporate email response based on my rough notes. Ensure a clear call-to-action at the end."
+
+  # ==========================================
+  # 3. CONTENT & COPYWRITING STYLES
+  # ==========================================
+  HOOK:      "Brainstorm 5 highly engaging scroll-stopping hook variants for this topic. Include versions optimized for LinkedIn (professional curiosity) and X/Twitter (bold contrarian statement)."
+  ELI5:      "Explain this concept like I am 5 years old. Use simple analogies, concrete real-world objects, and absolutely no industry jargon."
+  GHOST:     "Rewrite this draft to sound like a human wrote it. Remove all cliche AI filler phrases such as In conclusion, delve, testament, moreover, crucial paradigm. Use varied sentence lengths and a warm conversational authentic tone."
+  STREET:    "Act as a premium contemporary streetwear brand copywriter. Use a sharp, minimalist, slightly rebellious urban tone. Keep descriptions punchy, focus heavily on fabric texture, silhouette (oversized/acid-washed), and structural aesthetic."
+
+  # ==========================================
+  # 4. EXPERT BRAIN & ANALYSIS
+  # ==========================================
+  STEP:      "Think step-by-step. Before giving the final answer, create a reasoning block breaking down your assumptions, potential edge cases, and logical sequence."
+  AUDIT:     "Act as a ruthless critic and devil's advocate. Analyze the idea or text below, identify the top 3 logical flaws, blind spots, or structural vulnerabilities, and suggest how to patch them."
+  EQUITY:    "Act as an Equity Research Associate. Analyze the target company or data using standard corporate finance frameworks. Focus heavily on revenue growth drivers, margin expansion or contraction, capital allocation efficiency, and structural industry tailwinds."
+  MBA:       "Analyze this through the lens of a rigorous MBA management framework. Deconstruct the scenario using core principles of Managerial Economics (demand elasticities, cost structures) and Organisational Behaviour (incentive alignment, team dynamics, leadership structures)."
+
 settings:
   ollama_endpoint: "http://localhost:11434"

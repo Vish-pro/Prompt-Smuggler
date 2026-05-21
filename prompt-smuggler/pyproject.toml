@@ -1,0 +1,57 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "prompt-smuggler"
+version = "0.1.0"
+description = "Prompt compression via custom symbols. Works with any LLM."
+requires-python = ">=3.8"
+
+# Core — always installed. No AI provider packages here.
+dependencies = [
+    "tiktoken",
+    "pyyaml",
+    "requests",
+    "python-dotenv",
+    "pyperclip",
+]
+
+[project.scripts]
+# After install, users can type 'smuggler' directly instead of 'python -m smuggler.cli'
+smuggler = "smuggler.cli:main"
+
+[project.optional-dependencies]
+# Western providers
+anthropic   = ["anthropic"]
+openai      = ["openai"]
+bedrock     = ["boto3"]
+ollama      = []                      # uses 'requests' which is already in core
+gemini      = ["google-generativeai"]
+groq        = ["groq"]
+mistral     = ["mistralai"]
+azure       = ["openai"]              # reuses openai package
+huggingface = ["huggingface-hub", "transformers"]
+
+# Chinese providers — all OpenAI-compatible, reuse openai package
+deepseek    = ["openai"]
+qwen        = ["openai"]
+kimi        = ["openai"]
+yi          = ["openai"]
+
+# Hotkey daemon — for non-coders using Claude Desktop / ChatGPT / any AI
+watch       = ["keyboard", "plyer"]
+
+# Install everything at once
+all = [
+    "anthropic",
+    "openai",
+    "boto3",
+    "google-generativeai",
+    "groq",
+    "mistralai",
+    "huggingface-hub",
+    "transformers",
+    "keyboard",
+    "plyer",
+]

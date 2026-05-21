@@ -1,5 +1,19 @@
+# Core dependencies — always required
 tiktoken
-sentence-transformers
 pyyaml
 requests
 python-dotenv
+pyperclip
+
+# ─────────────────────────────────────────────────────────────────
+# DO NOT install this file directly with pip install -r requirements.txt
+# Use pyproject.toml extras instead — install only what you need:
+#
+#   pip install -e ".[anthropic]"
+#   pip install -e ".[openai]"
+#   pip install -e ".[deepseek]"
+#   pip install -e ".[ollama]"
+#   pip install -e ".[all]"        ← installs every provider
+#
+# See pyproject.toml for the full list of extras.
+# ─────────────────────────────────────────────────────────────────
