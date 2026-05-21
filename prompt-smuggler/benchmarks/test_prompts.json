@@ -1,0 +1,12 @@
+[
+    {
+        "id": "1",
+        "raw_prompt": "Create a function to calculate the Fibonacci sequence. Use TypeScript, strict typing, interfaces for all props, and prefer functional components. Respond with a strictly valid JSON object, omitting any conversational filler or introductory markdown text.",
+        "expected_structure": "json"
+    },
+    {
+        "id": "2",
+        "raw_prompt": "Write a REST API endpoint for user login. Respond with a strictly valid JSON object, omitting any conversational filler or introductory markdown text.",
+        "expected_structure": "json"
+    }
+]

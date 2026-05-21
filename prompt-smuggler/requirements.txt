@@ -1,0 +1,5 @@
+tiktoken
+sentence-transformers
+pyyaml
+requests
+python-dotenv
