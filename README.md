@@ -10,6 +10,8 @@ No coding knowledge required.
  bullet points. Keep the total response under 3 sentences."
 ```
 
+![Prompt-Smuggler Desktop App](assets/demo-desktop.png)
+
 ---
 
 ## Who This Is For
@@ -159,6 +161,8 @@ pip install -e ".[watch]"
 smuggler --watch
 ```
 
+![Hotkey Daemon](assets/demo-daemon.png)
+
 Then from any app — Claude Desktop, ChatGPT, Gemini, anything:
 
 1. Copy a long prompt (`Ctrl+A` → `Ctrl+C`)
@@ -169,6 +173,8 @@ Then from any app — Claude Desktop, ChatGPT, Gemini, anything:
 ---
 
 ### Option C — CLI (For developers)
+
+![CLI dry-run output](assets/demo-cli.png)
 
 ```bash
 # Install core only
