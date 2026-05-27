@@ -1,50 +1,1239 @@
-# =====================================================================
-# PROMPT-SMUGGLER GLOBAL SHORTHAND GRAMMAR DEFINITIONS
-# =====================================================================
-# The Rule: If you type an instruction more than twice, it belongs here.
-# Prefixes used:
-#   µ_   (Micro) = Heavy structural formatting rules
-#   ⚡_  (Flash) = Fast productivity shortcuts
-#   ✍️_  (Write) = Content, tone, and brand styling
-#   🧠_  (Brain) = Advanced thinking and logic models
-# =====================================================================
-
 grammar:
-
-  # ==========================================
-  # 1. HEAVY STRUCTURAL FORMATTING (µ_)
-  # ==========================================
-  µ_j:     "Respond with a strictly valid JSON object, omitting all conversational filler, introductory markdown text, or wrapping explanations."
-  µ_ts:    "Use TypeScript, strict typing, interfaces for all props, and prefer functional components."
-  µ_table: "Format the entire output as a clean, highly organized Markdown table with descriptive column headers."
-  µ_chart: "Represent the data or process as a text-based ASCII flowchart or a clean Mermaid.js diagram sequence."
-  µ_slide: "Format this content as a presentation slide deck outline. For each slide, provide a Slide Title, 3 high-impact bullet points, and brief Speaker Notes."
-  Ξ_clean: "Remove all unnecessary inline comments, format using strict variable typing, and optimize loops for performance."
-
-  # ==========================================
-  # 2. SPEED PRODUCTIVITY SHORTCUTS
-  # ==========================================
-  SIMPLE:    "Reply in clean, scannable bullet points. Keep the total response under 3 sentences. Use highly accessible, direct English."
-  TLDR:      "Provide a Too Long Did Not Read summary. Give exactly 1 headline sentence capturing the main point, followed by 3 sub-bullets of essential takeaways."
-  ACTION:    "Skim the text below and extract only the action items. Format as a checkbox list with owners and implicit deadlines if mentioned."
-  FIX:       "Check the provided text for grammatical errors, spelling mistakes, and awkward phrasing. Return only the corrected version with changes highlighted in bold."
-  EMAIL:     "Draft a polite, professional corporate email response based on my rough notes. Ensure a clear call-to-action at the end."
-
-  # ==========================================
-  # 3. CONTENT & COPYWRITING STYLES
-  # ==========================================
-  HOOK:      "Brainstorm 5 highly engaging scroll-stopping hook variants for this topic. Include versions optimized for LinkedIn (professional curiosity) and X/Twitter (bold contrarian statement)."
-  ELI5:      "Explain this concept like I am 5 years old. Use simple analogies, concrete real-world objects, and absolutely no industry jargon."
-  GHOST:     "Rewrite this draft to sound like a human wrote it. Remove all cliche AI filler phrases such as In conclusion, delve, testament, moreover, crucial paradigm. Use varied sentence lengths and a warm conversational authentic tone."
-  STREET:    "Act as a premium contemporary streetwear brand copywriter. Use a sharp, minimalist, slightly rebellious urban tone. Keep descriptions punchy, focus heavily on fabric texture, silhouette (oversized/acid-washed), and structural aesthetic."
-
-  # ==========================================
-  # 4. EXPERT BRAIN & ANALYSIS
-  # ==========================================
-  STEP:      "Think step-by-step. Before giving the final answer, create a reasoning block breaking down your assumptions, potential edge cases, and logical sequence."
-  AUDIT:     "Act as a ruthless critic and devil's advocate. Analyze the idea or text below, identify the top 3 logical flaws, blind spots, or structural vulnerabilities, and suggest how to patch them."
-  EQUITY:    "Act as an Equity Research Associate. Analyze the target company or data using standard corporate finance frameworks. Focus heavily on revenue growth drivers, margin expansion or contraction, capital allocation efficiency, and structural industry tailwinds."
-  MBA:       "Analyze this through the lens of a rigorous MBA management framework. Deconstruct the scenario using core principles of Managerial Economics (demand elasticities, cost structures) and Organisational Behaviour (incentive alignment, team dynamics, leadership structures)."
-
+  µ_j: Respond with a strictly valid JSON object, omitting all conversational filler,
+    introductory markdown text, or wrapping explanations.
+  µ_ts: Use TypeScript, strict typing, interfaces for all props, and prefer functional
+    components.
+  µ_table: Format the entire output as a clean, highly organized Markdown table with
+    descriptive column headers.
+  µ_chart: Represent the data or process as a text-based ASCII flowchart or a clean
+    Mermaid.js diagram sequence.
+  µ_slide: Format this content as a presentation slide deck outline. For each slide,
+    provide a Slide Title, 3 high-impact bullet points, and brief Speaker Notes.
+  Ξ_clean: Remove all unnecessary inline comments, format using strict variable typing,
+    and optimize loops for performance.
+  SIMPLE: Reply in clean, scannable bullet points. Keep the total response under 3
+    sentences. Use highly accessible, direct English.
+  TLDR: Provide a Too Long Did Not Read summary. Give exactly 1 headline sentence
+    capturing the main point, followed by 3 sub-bullets of essential takeaways.
+  ACTION: Skim the text below and extract only the action items. Format as a checkbox
+    list with owners and implicit deadlines if mentioned.
+  FIX: Check the provided text for grammatical errors, spelling mistakes, and awkward
+    phrasing. Return only the corrected version with changes highlighted in bold.
+  EMAIL: Draft a polite, professional corporate email response based on my rough notes.
+    Ensure a clear call-to-action at the end.
+  HOOK: Brainstorm 5 highly engaging scroll-stopping hook variants for this topic.
+    Include versions optimized for LinkedIn (professional curiosity) and X/Twitter
+    (bold contrarian statement).
+  ELI5: Explain this concept like I am 5 years old. Use simple analogies, concrete
+    real-world objects, and absolutely no industry jargon.
+  GHOST: Rewrite this draft to sound like a human wrote it. Remove all cliche AI filler
+    phrases such as In conclusion, delve, testament, moreover, crucial paradigm. Use
+    varied sentence lengths and a warm conversational authentic tone.
+  STREET: Act as a premium contemporary streetwear brand copywriter. Use a sharp,
+    minimalist, slightly rebellious urban tone. Keep descriptions punchy, focus heavily
+    on fabric texture, silhouette (oversized/acid-washed), and structural aesthetic.
+  STEP: Think step-by-step. Before giving the final answer, create a reasoning block
+    breaking down your assumptions, potential edge cases, and logical sequence.
+  AUDIT: Act as a ruthless critic and devil's advocate. Analyze the idea or text below,
+    identify the top 3 logical flaws, blind spots, or structural vulnerabilities,
+    and suggest how to patch them.
+  EQUITY: Act as an Equity Research Associate. Analyze the target company or data
+    using standard corporate finance frameworks. Focus heavily on revenue growth drivers,
+    margin expansion or contraction, capital allocation efficiency, and structural
+    industry tailwinds.
+  MBA: Analyze this through the lens of a rigorous MBA management framework. Deconstruct
+    the scenario using core principles of Managerial Economics (demand elasticities,
+    cost structures) and Organisational Behaviour (incentive alignment, team dynamics,
+    leadership structures).
+  ROLE_0: Act as a world-class Software Engineer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_0: Take on the persona of an expert Software Engineer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_0: You are a mentor and senior Software Engineer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_1: Act as a world-class Data Scientist with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_1: Take on the persona of an expert Data Scientist. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_1: You are a mentor and senior Data Scientist. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_2: Act as a world-class Product Manager with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_2: Take on the persona of an expert Product Manager. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_2: You are a mentor and senior Product Manager. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_3: Act as a world-class UI/UX Designer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_3: Take on the persona of an expert UI/UX Designer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_3: You are a mentor and senior UI/UX Designer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_4: Act as a world-class DevOps Engineer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_4: Take on the persona of an expert DevOps Engineer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_4: You are a mentor and senior DevOps Engineer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_5: Act as a world-class Cybersecurity Expert with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_5: Take on the persona of an expert Cybersecurity Expert. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_5: You are a mentor and senior Cybersecurity Expert. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_6: Act as a world-class Database Administrator with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_6: Take on the persona of an expert Database Administrator. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_6: You are a mentor and senior Database Administrator. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_7: Act as a world-class Cloud Architect with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_7: Take on the persona of an expert Cloud Architect. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_7: You are a mentor and senior Cloud Architect. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_8: Act as a world-class Machine Learning Engineer with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_8: Take on the persona of an expert Machine Learning Engineer. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_8: You are a mentor and senior Machine Learning Engineer. Guide me through
+    the problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_9: Act as a world-class Frontend Developer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_9: Take on the persona of an expert Frontend Developer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_9: You are a mentor and senior Frontend Developer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_10: Act as a world-class Backend Developer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_10: Take on the persona of an expert Backend Developer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_10: You are a mentor and senior Backend Developer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_11: Act as a world-class Full Stack Developer with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_11: Take on the persona of an expert Full Stack Developer. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_11: You are a mentor and senior Full Stack Developer. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_12: Act as a world-class Mobile App Developer with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_12: Take on the persona of an expert Mobile App Developer. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_12: You are a mentor and senior Mobile App Developer. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_13: Act as a world-class Game Developer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_13: Take on the persona of an expert Game Developer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_13: You are a mentor and senior Game Developer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_14: Act as a world-class QA Automation Engineer with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_14: Take on the persona of an expert QA Automation Engineer. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_14: You are a mentor and senior QA Automation Engineer. Guide me through
+    the problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_15: Act as a world-class Systems Analyst with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_15: Take on the persona of an expert Systems Analyst. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_15: You are a mentor and senior Systems Analyst. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_16: Act as a world-class Copywriter with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_16: Take on the persona of an expert Copywriter. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_16: You are a mentor and senior Copywriter. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_17: Act as a world-class Digital Marketer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_17: Take on the persona of an expert Digital Marketer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_17: You are a mentor and senior Digital Marketer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_18: Act as a world-class SEO Specialist with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_18: Take on the persona of an expert SEO Specialist. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_18: You are a mentor and senior SEO Specialist. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_19: Act as a world-class Content Strategist with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_19: Take on the persona of an expert Content Strategist. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_19: You are a mentor and senior Content Strategist. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_20: Act as a world-class Social Media Manager with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_20: Take on the persona of an expert Social Media Manager. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_20: You are a mentor and senior Social Media Manager. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_21: Act as a world-class Brand Strategist with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_21: Take on the persona of an expert Brand Strategist. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_21: You are a mentor and senior Brand Strategist. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_22: Act as a world-class Public Relations Specialist with over 15 years of
+    industry experience and deep subject matter expertise. Think step-by-step and
+    provide authoritative, well-reasoned answers.
+  ROLE_C_22: Take on the persona of an expert Public Relations Specialist. Provide
+    clear, concise, and highly technical insights without any unnecessary introductory
+    fluff.
+  ROLE_M_22: You are a mentor and senior Public Relations Specialist. Guide me through
+    the problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_23: Act as a world-class Email Marketer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_23: Take on the persona of an expert Email Marketer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_23: You are a mentor and senior Email Marketer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_24: Act as a world-class Growth Hacker with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_24: Take on the persona of an expert Growth Hacker. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_24: You are a mentor and senior Growth Hacker. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_25: Act as a world-class Technical Writer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_25: Take on the persona of an expert Technical Writer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_25: You are a mentor and senior Technical Writer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_26: Act as a world-class Grant Writer with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_26: Take on the persona of an expert Grant Writer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_26: You are a mentor and senior Grant Writer. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_27: Act as a world-class Speechwriter with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_27: Take on the persona of an expert Speechwriter. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_27: You are a mentor and senior Speechwriter. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_28: Act as a world-class Financial Analyst with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_28: Take on the persona of an expert Financial Analyst. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_28: You are a mentor and senior Financial Analyst. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_29: Act as a world-class Investment Banker with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_29: Take on the persona of an expert Investment Banker. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_29: You are a mentor and senior Investment Banker. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_30: Act as a world-class Accountant with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_30: Take on the persona of an expert Accountant. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_30: You are a mentor and senior Accountant. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_31: Act as a world-class Economist with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_31: Take on the persona of an expert Economist. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_31: You are a mentor and senior Economist. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_32: Act as a world-class Venture Capitalist with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_32: Take on the persona of an expert Venture Capitalist. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_32: You are a mentor and senior Venture Capitalist. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_33: Act as a world-class Risk Manager with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_33: Take on the persona of an expert Risk Manager. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_33: You are a mentor and senior Risk Manager. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_34: Act as a world-class Actuary with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_34: Take on the persona of an expert Actuary. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_34: You are a mentor and senior Actuary. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_35: Act as a world-class Management Consultant with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_35: Take on the persona of an expert Management Consultant. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_35: You are a mentor and senior Management Consultant. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_36: Act as a world-class HR Manager with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_36: Take on the persona of an expert HR Manager. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_36: You are a mentor and senior HR Manager. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_37: Act as a world-class Recruiter with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_37: Take on the persona of an expert Recruiter. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_37: You are a mentor and senior Recruiter. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_38: Act as a world-class Operations Manager with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_38: Take on the persona of an expert Operations Manager. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_38: You are a mentor and senior Operations Manager. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_39: Act as a world-class Supply Chain Analyst with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_39: Take on the persona of an expert Supply Chain Analyst. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_39: You are a mentor and senior Supply Chain Analyst. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_40: Act as a world-class Project Manager with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_40: Take on the persona of an expert Project Manager. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_40: You are a mentor and senior Project Manager. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_41: Act as a world-class Agile Coach with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_41: Take on the persona of an expert Agile Coach. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_41: You are a mentor and senior Agile Coach. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_42: Act as a world-class Scrum Master with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_42: Take on the persona of an expert Scrum Master. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_42: You are a mentor and senior Scrum Master. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_43: Act as a world-class Business Analyst with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_43: Take on the persona of an expert Business Analyst. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_43: You are a mentor and senior Business Analyst. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_44: Act as a world-class Lawyer with over 15 years of industry experience and
+    deep subject matter expertise. Think step-by-step and provide authoritative, well-reasoned
+    answers.
+  ROLE_C_44: Take on the persona of an expert Lawyer. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_44: You are a mentor and senior Lawyer. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_45: Act as a world-class Paralegal with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_45: Take on the persona of an expert Paralegal. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_45: You are a mentor and senior Paralegal. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_46: Act as a world-class Compliance Officer with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_46: Take on the persona of an expert Compliance Officer. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_46: You are a mentor and senior Compliance Officer. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_47: Act as a world-class Intellectual Property Attorney with over 15 years
+    of industry experience and deep subject matter expertise. Think step-by-step and
+    provide authoritative, well-reasoned answers.
+  ROLE_C_47: Take on the persona of an expert Intellectual Property Attorney. Provide
+    clear, concise, and highly technical insights without any unnecessary introductory
+    fluff.
+  ROLE_M_47: You are a mentor and senior Intellectual Property Attorney. Guide me
+    through the problem using Socratic questioning, best practices, and real-world
+    examples.
+  ROLE_48: Act as a world-class Doctor with over 15 years of industry experience and
+    deep subject matter expertise. Think step-by-step and provide authoritative, well-reasoned
+    answers.
+  ROLE_C_48: Take on the persona of an expert Doctor. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_48: You are a mentor and senior Doctor. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_49: Act as a world-class Nurse with over 15 years of industry experience and
+    deep subject matter expertise. Think step-by-step and provide authoritative, well-reasoned
+    answers.
+  ROLE_C_49: Take on the persona of an expert Nurse. Provide clear, concise, and highly
+    technical insights without any unnecessary introductory fluff.
+  ROLE_M_49: You are a mentor and senior Nurse. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_50: Act as a world-class Pharmacist with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_50: Take on the persona of an expert Pharmacist. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_50: You are a mentor and senior Pharmacist. Guide me through the problem
+    using Socratic questioning, best practices, and real-world examples.
+  ROLE_51: Act as a world-class Medical Researcher with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_51: Take on the persona of an expert Medical Researcher. Provide clear, concise,
+    and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_51: You are a mentor and senior Medical Researcher. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_52: Act as a world-class Teacher with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_52: Take on the persona of an expert Teacher. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_52: You are a mentor and senior Teacher. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_53: Act as a world-class Professor with over 15 years of industry experience
+    and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_53: Take on the persona of an expert Professor. Provide clear, concise, and
+    highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_53: You are a mentor and senior Professor. Guide me through the problem using
+    Socratic questioning, best practices, and real-world examples.
+  ROLE_54: Act as a world-class Instructional Designer with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_54: Take on the persona of an expert Instructional Designer. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_54: You are a mentor and senior Instructional Designer. Guide me through
+    the problem using Socratic questioning, best practices, and real-world examples.
+  ROLE_55: Act as a world-class Academic Researcher with over 15 years of industry
+    experience and deep subject matter expertise. Think step-by-step and provide authoritative,
+    well-reasoned answers.
+  ROLE_C_55: Take on the persona of an expert Academic Researcher. Provide clear,
+    concise, and highly technical insights without any unnecessary introductory fluff.
+  ROLE_M_55: You are a mentor and senior Academic Researcher. Guide me through the
+    problem using Socratic questioning, best practices, and real-world examples.
+  TONE_0: Adopt a Professional tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_0: Write the following content strictly using a Professional voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_0: Adjust your communication style to be highly Professional. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_1: Adopt a Casual tone for the duration of this response. Use appropriate vocabulary,
+    sentence structure, and phrasing that reflect this specific style.
+  TONE_W_1: Write the following content strictly using a Casual voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_1: Adjust your communication style to be highly Casual. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_2: Adopt a Humorous tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_2: Write the following content strictly using a Humorous voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_2: Adjust your communication style to be highly Humorous. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_3: Adopt a Sarcastic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_3: Write the following content strictly using a Sarcastic voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_3: Adjust your communication style to be highly Sarcastic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_4: Adopt a Empathetic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_4: Write the following content strictly using a Empathetic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_4: Adjust your communication style to be highly Empathetic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_5: Adopt a Authoritative tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_5: Write the following content strictly using a Authoritative voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_5: Adjust your communication style to be highly Authoritative. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_6: Adopt a Persuasive tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_6: Write the following content strictly using a Persuasive voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_6: Adjust your communication style to be highly Persuasive. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_7: Adopt a Inspirational tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_7: Write the following content strictly using a Inspirational voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_7: Adjust your communication style to be highly Inspirational. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_8: Adopt a Academic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_8: Write the following content strictly using a Academic voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_8: Adjust your communication style to be highly Academic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_9: Adopt a Journalistic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_9: Write the following content strictly using a Journalistic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_9: Adjust your communication style to be highly Journalistic. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_10: Adopt a Witty tone for the duration of this response. Use appropriate vocabulary,
+    sentence structure, and phrasing that reflect this specific style.
+  TONE_W_10: Write the following content strictly using a Witty voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_10: Adjust your communication style to be highly Witty. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_11: Adopt a Direct tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_11: Write the following content strictly using a Direct voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_11: Adjust your communication style to be highly Direct. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_12: Adopt a Polite tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_12: Write the following content strictly using a Polite voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_12: Adjust your communication style to be highly Polite. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_13: Adopt a Aggressive tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_13: Write the following content strictly using a Aggressive voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_13: Adjust your communication style to be highly Aggressive. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_14: Adopt a Passionate tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_14: Write the following content strictly using a Passionate voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_14: Adjust your communication style to be highly Passionate. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_15: Adopt a Formal tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_15: Write the following content strictly using a Formal voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_15: Adjust your communication style to be highly Formal. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_16: Adopt a Informal tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_16: Write the following content strictly using a Informal voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_16: Adjust your communication style to be highly Informal. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_17: Adopt a Objective tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_17: Write the following content strictly using a Objective voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_17: Adjust your communication style to be highly Objective. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_18: Adopt a Subjective tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_18: Write the following content strictly using a Subjective voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_18: Adjust your communication style to be highly Subjective. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_19: Adopt a Conversational tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_19: Write the following content strictly using a Conversational voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_19: Adjust your communication style to be highly Conversational. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_20: Adopt a Didactic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_20: Write the following content strictly using a Didactic voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_20: Adjust your communication style to be highly Didactic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_21: Adopt a Inquisitive tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_21: Write the following content strictly using a Inquisitive voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_21: Adjust your communication style to be highly Inquisitive. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_22: Adopt a Reflective tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_22: Write the following content strictly using a Reflective voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_22: Adjust your communication style to be highly Reflective. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_23: Adopt a Satirical tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_23: Write the following content strictly using a Satirical voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_23: Adjust your communication style to be highly Satirical. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_24: Adopt a Cynical tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_24: Write the following content strictly using a Cynical voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_24: Adjust your communication style to be highly Cynical. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_25: Adopt a Optimistic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_25: Write the following content strictly using a Optimistic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_25: Adjust your communication style to be highly Optimistic. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_26: Adopt a Pessimistic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_26: Write the following content strictly using a Pessimistic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_26: Adjust your communication style to be highly Pessimistic. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_27: Adopt a Pragmatic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_27: Write the following content strictly using a Pragmatic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_27: Adjust your communication style to be highly Pragmatic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_28: Adopt a Idealistic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_28: Write the following content strictly using a Idealistic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_28: Adjust your communication style to be highly Idealistic. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_29: Adopt a Stoic tone for the duration of this response. Use appropriate vocabulary,
+    sentence structure, and phrasing that reflect this specific style.
+  TONE_W_29: Write the following content strictly using a Stoic voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_29: Adjust your communication style to be highly Stoic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_30: Adopt a Enthusiastic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_30: Write the following content strictly using a Enthusiastic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_30: Adjust your communication style to be highly Enthusiastic. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_31: Adopt a Melancholic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_31: Write the following content strictly using a Melancholic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_31: Adjust your communication style to be highly Melancholic. Tailor your
+    words to resonate with an audience that expects this exact type of delivery.
+  TONE_32: Adopt a Nostalgic tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_32: Write the following content strictly using a Nostalgic voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_32: Adjust your communication style to be highly Nostalgic. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_33: Adopt a Whimsical tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_33: Write the following content strictly using a Whimsical voice. Ensure
+    the mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_33: Adjust your communication style to be highly Whimsical. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  TONE_34: Adopt a Reverent tone for the duration of this response. Use appropriate
+    vocabulary, sentence structure, and phrasing that reflect this specific style.
+  TONE_W_34: Write the following content strictly using a Reverent voice. Ensure the
+    mood is consistent throughout the entire text and avoids conflicting emotions.
+  TONE_A_34: Adjust your communication style to be highly Reverent. Tailor your words
+    to resonate with an audience that expects this exact type of delivery.
+  FMT_0: Format the output strictly as valid JSON. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_0: Convert the provided information into a clean, well-structured JSON representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_0: Your final deliverable must be exclusively in JSON. Any text outside of
+    the requested format will be considered a failure.
+  FMT_1: Format the output strictly as valid XML. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_1: Convert the provided information into a clean, well-structured XML representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_1: Your final deliverable must be exclusively in XML. Any text outside of
+    the requested format will be considered a failure.
+  FMT_2: Format the output strictly as valid CSV. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_2: Convert the provided information into a clean, well-structured CSV representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_2: Your final deliverable must be exclusively in CSV. Any text outside of
+    the requested format will be considered a failure.
+  FMT_3: Format the output strictly as valid Markdown. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_3: Convert the provided information into a clean, well-structured Markdown
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_3: Your final deliverable must be exclusively in Markdown. Any text outside
+    of the requested format will be considered a failure.
+  FMT_4: Format the output strictly as valid HTML. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_4: Convert the provided information into a clean, well-structured HTML representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_4: Your final deliverable must be exclusively in HTML. Any text outside of
+    the requested format will be considered a failure.
+  FMT_5: Format the output strictly as valid CSS. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_5: Convert the provided information into a clean, well-structured CSS representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_5: Your final deliverable must be exclusively in CSS. Any text outside of
+    the requested format will be considered a failure.
+  FMT_6: Format the output strictly as valid YAML. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_6: Convert the provided information into a clean, well-structured YAML representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_6: Your final deliverable must be exclusively in YAML. Any text outside of
+    the requested format will be considered a failure.
+  FMT_7: Format the output strictly as valid TOML. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_7: Convert the provided information into a clean, well-structured TOML representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_7: Your final deliverable must be exclusively in TOML. Any text outside of
+    the requested format will be considered a failure.
+  FMT_8: Format the output strictly as valid SQL. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_8: Convert the provided information into a clean, well-structured SQL representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_8: Your final deliverable must be exclusively in SQL. Any text outside of
+    the requested format will be considered a failure.
+  FMT_9: Format the output strictly as valid Bash. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_9: Convert the provided information into a clean, well-structured Bash representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_9: Your final deliverable must be exclusively in Bash. Any text outside of
+    the requested format will be considered a failure.
+  FMT_10: Format the output strictly as valid Python. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_10: Convert the provided information into a clean, well-structured Python
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_10: Your final deliverable must be exclusively in Python. Any text outside
+    of the requested format will be considered a failure.
+  FMT_11: Format the output strictly as valid JavaScript. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_11: Convert the provided information into a clean, well-structured JavaScript
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_11: Your final deliverable must be exclusively in JavaScript. Any text outside
+    of the requested format will be considered a failure.
+  FMT_12: Format the output strictly as valid TypeScript. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_12: Convert the provided information into a clean, well-structured TypeScript
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_12: Your final deliverable must be exclusively in TypeScript. Any text outside
+    of the requested format will be considered a failure.
+  FMT_13: Format the output strictly as valid C++. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_13: Convert the provided information into a clean, well-structured C++ representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_13: Your final deliverable must be exclusively in C++. Any text outside of
+    the requested format will be considered a failure.
+  FMT_14: Format the output strictly as valid Java. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_14: Convert the provided information into a clean, well-structured Java representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_14: Your final deliverable must be exclusively in Java. Any text outside of
+    the requested format will be considered a failure.
+  FMT_15: Format the output strictly as valid C#. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_15: Convert the provided information into a clean, well-structured C# representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_15: Your final deliverable must be exclusively in C#. Any text outside of
+    the requested format will be considered a failure.
+  FMT_16: Format the output strictly as valid Go. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_16: Convert the provided information into a clean, well-structured Go representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_16: Your final deliverable must be exclusively in Go. Any text outside of
+    the requested format will be considered a failure.
+  FMT_17: Format the output strictly as valid Rust. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_17: Convert the provided information into a clean, well-structured Rust representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_17: Your final deliverable must be exclusively in Rust. Any text outside of
+    the requested format will be considered a failure.
+  FMT_18: Format the output strictly as valid Swift. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_18: Convert the provided information into a clean, well-structured Swift representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_18: Your final deliverable must be exclusively in Swift. Any text outside
+    of the requested format will be considered a failure.
+  FMT_19: Format the output strictly as valid Kotlin. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_19: Convert the provided information into a clean, well-structured Kotlin
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_19: Your final deliverable must be exclusively in Kotlin. Any text outside
+    of the requested format will be considered a failure.
+  FMT_20: Format the output strictly as valid PHP. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_20: Convert the provided information into a clean, well-structured PHP representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_20: Your final deliverable must be exclusively in PHP. Any text outside of
+    the requested format will be considered a failure.
+  FMT_21: Format the output strictly as valid Ruby. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_21: Convert the provided information into a clean, well-structured Ruby representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_21: Your final deliverable must be exclusively in Ruby. Any text outside of
+    the requested format will be considered a failure.
+  FMT_22: Format the output strictly as valid Perl. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_22: Convert the provided information into a clean, well-structured Perl representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_22: Your final deliverable must be exclusively in Perl. Any text outside of
+    the requested format will be considered a failure.
+  FMT_23: Format the output strictly as valid Haskell. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_23: Convert the provided information into a clean, well-structured Haskell
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_23: Your final deliverable must be exclusively in Haskell. Any text outside
+    of the requested format will be considered a failure.
+  FMT_24: Format the output strictly as valid Scala. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_24: Convert the provided information into a clean, well-structured Scala representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_24: Your final deliverable must be exclusively in Scala. Any text outside
+    of the requested format will be considered a failure.
+  FMT_25: Format the output strictly as valid Lua. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_25: Convert the provided information into a clean, well-structured Lua representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_25: Your final deliverable must be exclusively in Lua. Any text outside of
+    the requested format will be considered a failure.
+  FMT_26: Format the output strictly as valid Dart. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_26: Convert the provided information into a clean, well-structured Dart representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_26: Your final deliverable must be exclusively in Dart. Any text outside of
+    the requested format will be considered a failure.
+  FMT_27: Format the output strictly as valid R. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_27: Convert the provided information into a clean, well-structured R representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_27: Your final deliverable must be exclusively in R. Any text outside of the
+    requested format will be considered a failure.
+  FMT_28: Format the output strictly as valid MATLAB. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_28: Convert the provided information into a clean, well-structured MATLAB
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_28: Your final deliverable must be exclusively in MATLAB. Any text outside
+    of the requested format will be considered a failure.
+  FMT_29: Format the output strictly as valid Objective-C. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_29: Convert the provided information into a clean, well-structured Objective-C
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_29: Your final deliverable must be exclusively in Objective-C. Any text outside
+    of the requested format will be considered a failure.
+  FMT_30: Format the output strictly as valid Bullet points. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_30: Convert the provided information into a clean, well-structured Bullet
+    points representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_30: Your final deliverable must be exclusively in Bullet points. Any text
+    outside of the requested format will be considered a failure.
+  FMT_31: Format the output strictly as valid Numbered list. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_31: Convert the provided information into a clean, well-structured Numbered
+    list representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_31: Your final deliverable must be exclusively in Numbered list. Any text
+    outside of the requested format will be considered a failure.
+  FMT_32: Format the output strictly as valid Table. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_32: Convert the provided information into a clean, well-structured Table representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_32: Your final deliverable must be exclusively in Table. Any text outside
+    of the requested format will be considered a failure.
+  FMT_33: Format the output strictly as valid Flowchart. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_33: Convert the provided information into a clean, well-structured Flowchart
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_33: Your final deliverable must be exclusively in Flowchart. Any text outside
+    of the requested format will be considered a failure.
+  FMT_34: Format the output strictly as valid Mind map. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_34: Convert the provided information into a clean, well-structured Mind map
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_34: Your final deliverable must be exclusively in Mind map. Any text outside
+    of the requested format will be considered a failure.
+  FMT_35: Format the output strictly as valid Essay. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_35: Convert the provided information into a clean, well-structured Essay representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_35: Your final deliverable must be exclusively in Essay. Any text outside
+    of the requested format will be considered a failure.
+  FMT_36: Format the output strictly as valid Poem. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_36: Convert the provided information into a clean, well-structured Poem representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_36: Your final deliverable must be exclusively in Poem. Any text outside of
+    the requested format will be considered a failure.
+  FMT_37: Format the output strictly as valid Haiku. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_37: Convert the provided information into a clean, well-structured Haiku representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_37: Your final deliverable must be exclusively in Haiku. Any text outside
+    of the requested format will be considered a failure.
+  FMT_38: Format the output strictly as valid Sonnet. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_38: Convert the provided information into a clean, well-structured Sonnet
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_38: Your final deliverable must be exclusively in Sonnet. Any text outside
+    of the requested format will be considered a failure.
+  FMT_39: Format the output strictly as valid Limerick. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_39: Convert the provided information into a clean, well-structured Limerick
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_39: Your final deliverable must be exclusively in Limerick. Any text outside
+    of the requested format will be considered a failure.
+  FMT_40: Format the output strictly as valid Screenplay. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_40: Convert the provided information into a clean, well-structured Screenplay
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_40: Your final deliverable must be exclusively in Screenplay. Any text outside
+    of the requested format will be considered a failure.
+  FMT_41: Format the output strictly as valid Play. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_41: Convert the provided information into a clean, well-structured Play representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_41: Your final deliverable must be exclusively in Play. Any text outside of
+    the requested format will be considered a failure.
+  FMT_42: Format the output strictly as valid Novel. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_42: Convert the provided information into a clean, well-structured Novel representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_42: Your final deliverable must be exclusively in Novel. Any text outside
+    of the requested format will be considered a failure.
+  FMT_43: Format the output strictly as valid Short story. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_43: Convert the provided information into a clean, well-structured Short story
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_43: Your final deliverable must be exclusively in Short story. Any text outside
+    of the requested format will be considered a failure.
+  FMT_44: Format the output strictly as valid Fable. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_44: Convert the provided information into a clean, well-structured Fable representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_44: Your final deliverable must be exclusively in Fable. Any text outside
+    of the requested format will be considered a failure.
+  FMT_45: Format the output strictly as valid Myth. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_45: Convert the provided information into a clean, well-structured Myth representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_45: Your final deliverable must be exclusively in Myth. Any text outside of
+    the requested format will be considered a failure.
+  FMT_46: Format the output strictly as valid Legend. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_46: Convert the provided information into a clean, well-structured Legend
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_46: Your final deliverable must be exclusively in Legend. Any text outside
+    of the requested format will be considered a failure.
+  FMT_47: Format the output strictly as valid Fairy tale. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_47: Convert the provided information into a clean, well-structured Fairy tale
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_47: Your final deliverable must be exclusively in Fairy tale. Any text outside
+    of the requested format will be considered a failure.
+  FMT_48: Format the output strictly as valid Biography. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_48: Convert the provided information into a clean, well-structured Biography
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_48: Your final deliverable must be exclusively in Biography. Any text outside
+    of the requested format will be considered a failure.
+  FMT_49: Format the output strictly as valid Autobiography. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_49: Convert the provided information into a clean, well-structured Autobiography
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_49: Your final deliverable must be exclusively in Autobiography. Any text
+    outside of the requested format will be considered a failure.
+  FMT_50: Format the output strictly as valid Memoir. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_50: Convert the provided information into a clean, well-structured Memoir
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_50: Your final deliverable must be exclusively in Memoir. Any text outside
+    of the requested format will be considered a failure.
+  FMT_51: Format the output strictly as valid Diary. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_51: Convert the provided information into a clean, well-structured Diary representation.
+    Ensure all syntax is correct and ready for immediate use.
+  FMT_O_51: Your final deliverable must be exclusively in Diary. Any text outside
+    of the requested format will be considered a failure.
+  FMT_52: Format the output strictly as valid Journal. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_52: Convert the provided information into a clean, well-structured Journal
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_52: Your final deliverable must be exclusively in Journal. Any text outside
+    of the requested format will be considered a failure.
+  FMT_53: Format the output strictly as valid Letter. Do not include any conversational
+    filler, introductory remarks, or markdown wrappers like backticks unless required
+    by the format.
+  FMT_C_53: Convert the provided information into a clean, well-structured Letter
+    representation. Ensure all syntax is correct and ready for immediate use.
+  FMT_O_53: Your final deliverable must be exclusively in Letter. Any text outside
+    of the requested format will be considered a failure.
+  CONST_0: Ensure the final output is strictly under 50 words. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_0: It is absolutely critical that the response is under 50 words. Any deviation
+    from this rule will render the output unusable.
+  CONST_B_0: Double-check your work to ensure it is under 50 words. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_1: Ensure the final output is strictly under 100 words. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_1: It is absolutely critical that the response is under 100 words. Any deviation
+    from this rule will render the output unusable.
+  CONST_B_1: Double-check your work to ensure it is under 100 words. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_2: Ensure the final output is strictly under 200 words. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_2: It is absolutely critical that the response is under 200 words. Any deviation
+    from this rule will render the output unusable.
+  CONST_B_2: Double-check your work to ensure it is under 200 words. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_3: Ensure the final output is strictly under 500 words. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_3: It is absolutely critical that the response is under 500 words. Any deviation
+    from this rule will render the output unusable.
+  CONST_B_3: Double-check your work to ensure it is under 500 words. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_4: Ensure the final output is strictly exactly 3 sentences. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_4: It is absolutely critical that the response is exactly 3 sentences. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_4: Double-check your work to ensure it is exactly 3 sentences. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_5: Ensure the final output is strictly exactly 5 paragraphs. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_5: It is absolutely critical that the response is exactly 5 paragraphs.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_5: Double-check your work to ensure it is exactly 5 paragraphs. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_6: Ensure the final output is strictly no more than 1 page. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_6: It is absolutely critical that the response is no more than 1 page. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_6: Double-check your work to ensure it is no more than 1 page. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_7: Ensure the final output is strictly using simple English. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_7: It is absolutely critical that the response is using simple English.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_7: Double-check your work to ensure it is using simple English. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_8: Ensure the final output is strictly without any jargon. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_8: It is absolutely critical that the response is without any jargon. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_8: Double-check your work to ensure it is without any jargon. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_9: Ensure the final output is strictly using complex vocabulary. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_9: It is absolutely critical that the response is using complex vocabulary.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_9: Double-check your work to ensure it is using complex vocabulary. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_10: Ensure the final output is strictly with citations. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_10: It is absolutely critical that the response is with citations. Any deviation
+    from this rule will render the output unusable.
+  CONST_B_10: Double-check your work to ensure it is with citations. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_11: Ensure the final output is strictly without citing sources. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_11: It is absolutely critical that the response is without citing sources.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_11: Double-check your work to ensure it is without citing sources. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_12: Ensure the final output is strictly in a step-by-step guide. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_12: It is absolutely critical that the response is in a step-by-step guide.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_12: Double-check your work to ensure it is in a step-by-step guide. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_13: Ensure the final output is strictly with pros and cons. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_13: It is absolutely critical that the response is with pros and cons. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_13: Double-check your work to ensure it is with pros and cons. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_14: Ensure the final output is strictly using a SWOT analysis. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_14: It is absolutely critical that the response is using a SWOT analysis.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_14: Double-check your work to ensure it is using a SWOT analysis. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_15: Ensure the final output is strictly using a PESTLE analysis. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_15: It is absolutely critical that the response is using a PESTLE analysis.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_15: Double-check your work to ensure it is using a PESTLE analysis. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_16: Ensure the final output is strictly using the STAR method. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_16: It is absolutely critical that the response is using the STAR method.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_16: Double-check your work to ensure it is using the STAR method. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_17: Ensure the final output is strictly using the SMART criteria. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_17: It is absolutely critical that the response is using the SMART criteria.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_17: Double-check your work to ensure it is using the SMART criteria. If
+    it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_18: Ensure the final output is strictly with an executive summary. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_18: It is absolutely critical that the response is with an executive summary.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_18: Double-check your work to ensure it is with an executive summary. If
+    it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_19: Ensure the final output is strictly with a clear call to action. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_19: It is absolutely critical that the response is with a clear call to
+    action. Any deviation from this rule will render the output unusable.
+  CONST_B_19: Double-check your work to ensure it is with a clear call to action.
+    If it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_20: Ensure the final output is strictly without using the word 'delve'. Pay
+    close attention to this constraint and revise your answer before finalizing it
+    to guarantee compliance.
+  CONST_A_20: It is absolutely critical that the response is without using the word
+    'delve'. Any deviation from this rule will render the output unusable.
+  CONST_B_20: Double-check your work to ensure it is without using the word 'delve'.
+    If it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_21: Ensure the final output is strictly without using the phrase 'in conclusion'.
+    Pay close attention to this constraint and revise your answer before finalizing
+    it to guarantee compliance.
+  CONST_A_21: It is absolutely critical that the response is without using the phrase
+    'in conclusion'. Any deviation from this rule will render the output unusable.
+  CONST_B_21: Double-check your work to ensure it is without using the phrase 'in
+    conclusion'. If it is not, iteratively refine the text until it perfectly matches
+    the requirement.
+  CONST_22: Ensure the final output is strictly avoiding passive voice. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_22: It is absolutely critical that the response is avoiding passive voice.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_22: Double-check your work to ensure it is avoiding passive voice. If it
+    is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_23: Ensure the final output is strictly using active voice. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_23: It is absolutely critical that the response is using active voice. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_23: Double-check your work to ensure it is using active voice. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_24: Ensure the final output is strictly with a high readability score. Pay
+    close attention to this constraint and revise your answer before finalizing it
+    to guarantee compliance.
+  CONST_A_24: It is absolutely critical that the response is with a high readability
+    score. Any deviation from this rule will render the output unusable.
+  CONST_B_24: Double-check your work to ensure it is with a high readability score.
+    If it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_25: Ensure the final output is strictly optimized for SEO. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_25: It is absolutely critical that the response is optimized for SEO. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_25: Double-check your work to ensure it is optimized for SEO. If it is not,
+    iteratively refine the text until it perfectly matches the requirement.
+  CONST_26: Ensure the final output is strictly with emojis. Pay close attention to
+    this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_26: It is absolutely critical that the response is with emojis. Any deviation
+    from this rule will render the output unusable.
+  CONST_B_26: Double-check your work to ensure it is with emojis. If it is not, iteratively
+    refine the text until it perfectly matches the requirement.
+  CONST_27: Ensure the final output is strictly without any emojis. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_27: It is absolutely critical that the response is without any emojis. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_27: Double-check your work to ensure it is without any emojis. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_28: Ensure the final output is strictly using bullet points for lists. Pay
+    close attention to this constraint and revise your answer before finalizing it
+    to guarantee compliance.
+  CONST_A_28: It is absolutely critical that the response is using bullet points for
+    lists. Any deviation from this rule will render the output unusable.
+  CONST_B_28: Double-check your work to ensure it is using bullet points for lists.
+    If it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_29: Ensure the final output is strictly highlighting key terms in bold. Pay
+    close attention to this constraint and revise your answer before finalizing it
+    to guarantee compliance.
+  CONST_A_29: It is absolutely critical that the response is highlighting key terms
+    in bold. Any deviation from this rule will render the output unusable.
+  CONST_B_29: Double-check your work to ensure it is highlighting key terms in bold.
+    If it is not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_30: Ensure the final output is strictly italicizing quotes. Pay close attention
+    to this constraint and revise your answer before finalizing it to guarantee compliance.
+  CONST_A_30: It is absolutely critical that the response is italicizing quotes. Any
+    deviation from this rule will render the output unusable.
+  CONST_B_30: Double-check your work to ensure it is italicizing quotes. If it is
+    not, iteratively refine the text until it perfectly matches the requirement.
+  CONST_31: Ensure the final output is strictly with a table of contents. Pay close
+    attention to this constraint and revise your answer before finalizing it to guarantee
+    compliance.
+  CONST_A_31: It is absolutely critical that the response is with a table of contents.
+    Any deviation from this rule will render the output unusable.
+  CONST_B_31: Double-check your work to ensure it is with a table of contents. If
+    it is not, iteratively refine the text until it perfectly matches the requirement.
 settings:
-  ollama_endpoint: "http://localhost:11434"
+  ollama_endpoint: http://localhost:11434
