@@ -1,0 +1,50 @@
+Metadata-Version: 2.4
+Name: prompt-smuggler
+Version: 0.1.0
+Summary: Prompt compression via custom symbols. Works with any LLM.
+Requires-Python: >=3.8
+Requires-Dist: tiktoken
+Requires-Dist: pyyaml
+Requires-Dist: requests
+Requires-Dist: python-dotenv
+Requires-Dist: pyperclip
+Provides-Extra: anthropic
+Requires-Dist: anthropic; extra == "anthropic"
+Provides-Extra: openai
+Requires-Dist: openai; extra == "openai"
+Provides-Extra: bedrock
+Requires-Dist: boto3; extra == "bedrock"
+Provides-Extra: ollama
+Provides-Extra: gemini
+Requires-Dist: google-generativeai; extra == "gemini"
+Provides-Extra: groq
+Requires-Dist: groq; extra == "groq"
+Provides-Extra: mistral
+Requires-Dist: mistralai; extra == "mistral"
+Provides-Extra: azure
+Requires-Dist: openai; extra == "azure"
+Provides-Extra: huggingface
+Requires-Dist: huggingface-hub; extra == "huggingface"
+Requires-Dist: transformers; extra == "huggingface"
+Provides-Extra: deepseek
+Requires-Dist: openai; extra == "deepseek"
+Provides-Extra: qwen
+Requires-Dist: openai; extra == "qwen"
+Provides-Extra: kimi
+Requires-Dist: openai; extra == "kimi"
+Provides-Extra: yi
+Requires-Dist: openai; extra == "yi"
+Provides-Extra: watch
+Requires-Dist: keyboard; extra == "watch"
+Requires-Dist: plyer; extra == "watch"
+Provides-Extra: all
+Requires-Dist: anthropic; extra == "all"
+Requires-Dist: openai; extra == "all"
+Requires-Dist: boto3; extra == "all"
+Requires-Dist: google-generativeai; extra == "all"
+Requires-Dist: groq; extra == "all"
+Requires-Dist: mistralai; extra == "all"
+Requires-Dist: huggingface-hub; extra == "all"
+Requires-Dist: transformers; extra == "all"
+Requires-Dist: keyboard; extra == "all"
+Requires-Dist: plyer; extra == "all"
